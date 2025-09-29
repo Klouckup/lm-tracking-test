@@ -24,7 +24,23 @@ data-jrny="32eb6d68-ec62-4c63-b0d5-06c91085674c" data-multi-dmn="false"></script
 
 <script>var continuallySettings = { appID: "p87rwvgvqyq9" };</script>
 <script src="https://cdn-app.continual.ly/js/embed/continually-embed.latest.min.js"></script>
-	  
+	  <script>
+
+		  continually.on('ready', function(api){
+  api.on('emailCapture', function(event){
+    lmetrics.attribute({
+      email: event.lead.email
+    });
+  }); 
+
+  api.on('phoneCapture', function(event){
+    lmetrics.attribute({
+          phone: event.lead.phone
+    })
+  });
+});
+
+	  </script>
   </head>
   <body>
     test
